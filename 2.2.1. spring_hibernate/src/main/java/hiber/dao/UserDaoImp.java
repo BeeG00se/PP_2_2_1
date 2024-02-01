@@ -15,7 +15,7 @@ public class UserDaoImp implements UserDao {
    private SessionFactory sessionFactory;
 
    @Override
-   public void add(User user) {
+   public void add(User user) {//todo: попробуем? session - в rty_with_resources (везде)
       sessionFactory.getCurrentSession().save(user);
    }
 

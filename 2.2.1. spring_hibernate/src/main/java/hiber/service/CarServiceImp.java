@@ -16,6 +16,7 @@ public class CarServiceImp implements CarService {
     public void add(Car car) {
         carDao.add(car);
     }
+
     @Transactional(readOnly = true)
     @Override
     public User userByCar(String model, int series){

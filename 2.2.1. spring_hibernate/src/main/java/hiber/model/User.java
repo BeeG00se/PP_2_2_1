@@ -70,4 +70,6 @@ public class User {
    public void setCar(Car car) {
       this.car = car;
    }
+
+   //todo: в modele-ях - ра=еализация equals/hachCode и toString
 }
