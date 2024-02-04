@@ -1,6 +1,7 @@
 package hiber.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "users")
@@ -71,5 +72,33 @@ public class User {
       this.car = car;
    }
 
-   //todo: в modele-ях - ра=еализация equals/hachCode и toString
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+      User user = (User) o;
+      return Objects.equals(id, user.id) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email);
+   }
+
+   @Override
+   public int hashCode() {
+      final int prime = 31;
+      int result = 1;
+      result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+      result = (int) (prime * result + id);
+      result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+      result = prime * result + ((email == null) ? 0 : email.hashCode());
+      return result;
+   }
+
+   @Override
+   public String toString() {
+      return "User{" +
+              "id=" + id +
+              ", firstName='" + firstName + '\'' +
+              ", lastName='" + lastName + '\'' +
+              ", email='" + email + '\'' +
+              ", car=" + car +
+              '}';
+   }
 }
