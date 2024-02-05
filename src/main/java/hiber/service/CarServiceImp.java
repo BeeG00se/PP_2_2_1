@@ -16,9 +16,4 @@ public class CarServiceImp implements CarService {
     public void add(Car car) {
         carDao.add(car);
     }
-
-    @Override
-    public User userByCar(String model, int series){
-        return carDao.userByCar(model, series);
-    }
 }

@@ -3,7 +3,6 @@ package hiber;
 import hiber.config.AppConfig;
 import hiber.model.Car;
 import hiber.model.User;
-import hiber.service.CarService;
 import hiber.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -26,21 +25,13 @@ public class MainApp {
       User pasha = new User("pasha", "Lastname3", "user3@mail.ru", car3);
       User danya = new User("danya", "Lastname4", "user4@mail.ru", car4);
 
-
-      car1.setUser(vlad);
-      car2.setUser(serega);
-      car3.setUser(pasha);
-      car4.setUser(danya);
-
       userService.add(vlad);
       userService.add(serega);
       userService.add(pasha);
       userService.add(danya);
 
-      CarService carService = context.getBean(CarService.class);
-      User found = carService.userByCar("model2", 2);
+      User found = userService.userByCar("model2", 2);
       System.out.println("Найденный пользователь: " + found.getFirstName() + " " + found.getLastName());
-
 
       List<User> users = userService.listUsers();
       for (User user : users) {
